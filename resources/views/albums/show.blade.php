@@ -4,6 +4,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -11,20 +12,19 @@
     <title>Document</title>
 </head>
 <body>
-<style>
-</style>
 <div class="bg-gradient-to-r from-gray-400 to-gray-800 text-white text-5xl">
 
     <ul class="flex p-4">
 
         <li class="mr-6 flex-auto">
 
-            <a href="/">home</a>
+            <a href="#">home</a>
 
         </li>
 
         <li class="mr-6 flex-auto">
-        <a class="text-white-800 hover:text-gray-400" href="/songs/create"> een nummer toevoegen</a>
+
+            <a class="text-white-800 hover:text-gray-400" href="/songs/create"> een nummer toevoegen</a>
 
         </li>
         <li class="mr-6 flex-auto">
@@ -35,40 +35,20 @@
     </ul>
 
 </div>
-
 <div class="container">
-<form action = "{{route('song.store')}}" method = "post">
-    @CSRF
+<p class="item_gap">Album: {{$albums -> name}} </p>
+<p class="item_gap">Jaar: {{$albums -> year}} </p>
+<p class="item_gap">Aantal keer verkocht: {{$albums->times_sold}} </p>
+{{--    <p class="item_gap">geselecteerde band: {{$albums->band->name}}</p>--}}
+{{--    <p class="item_gap">geselecteerde song: {{$albums->songs->title}}</p>--}}
+songs:
+    @foreach($albums->songs as $song)
+       <p> {{$song->title}} </p>
+    @endforeach
 
-
-            <p>Title</p>
-            <input class="item_gap" type='text' name='title' />
-
-            @error('title')
-            <div>
-                {{$message}}
-            </div>
-            @enderror
-            <p>singer</p>
-            <input class="item_gap" type="text" name='singer'/>
-
-        @error('singer')
-        <div>
-            {{$message}}
-        </div>
-        @enderror
-    <br>
-    <select class="item_gap" name="" id="">
-        <option value="test">test</option>
-    </select>
-    <br>
-
-                <input type = 'submit' value = "Add song"/>
-
-
-    </table>
-</form>
 </div>
+
+
+
 </body>
 </html>
-

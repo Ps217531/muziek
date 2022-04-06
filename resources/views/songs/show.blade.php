@@ -27,24 +27,21 @@
             <a class="text-white-800 hover:text-gray-400" href="/songs/create"> een nummer toevoegen</a>
 
         </li>
-       </li> <li class="mr-6 flex-auto">
+        <li class="mr-6 flex-auto">
 
             <a class="text-white-800 hover:text-gray-400" href="/songs/edit"> een nummer wijzigen</a>
 
-
+        </li>
     </ul>
 
 </div>
 
-<div class="container1">
+Song: {{$songs -> title}} <br> <br>
+Singer {{$songs -> singer}} <br>
 
-    @foreach($songs as $song)
-      <b>    <i>  <a href="/songs/{{$song->id}}">song: {{$song->title}}  </a></i></b>
-        <br>
-      <td><a style="color: red" href = '/songs/delete/{{ $song->id }}'>Delete</a></td>
-      <td><a style="color: orange" href = '/songs/{{ $song->id }}/edit'>update</a></td>
-    @endforeach
 
-</div>
+
+
+
 </body>
 </html>

@@ -10,65 +10,68 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
-<style>
-</style>
+<body >
 <div class="bg-gradient-to-r from-gray-400 to-gray-800 text-white text-5xl">
 
     <ul class="flex p-4">
 
         <li class="mr-6 flex-auto">
 
-            <a href="/">home</a>
+            <a href="/albums">Home</a>
 
         </li>
 
         <li class="mr-6 flex-auto">
-        <a class="text-white-800 hover:text-gray-400" href="/songs/create"> een nummer toevoegen</a>
 
+            <a class="text-white-800 hover:text-gray-400" href="*"> Een dier toevoegen</a>
+
+        </li>
         </li>
         <li class="mr-6 flex-auto">
 
-            <a class="text-white-800 hover:text-gray-400" href="/songs/edit"> een nummer wijzigen</a>
+            <a class="text-white-800 hover:text-gray-400" href="/albums/update"> Een dier wijzigen</a>
 
-        </li>
+
     </ul>
 
 </div>
-
 <div class="container">
-<form action = "{{route('song.store')}}" method = "post">
+<form action = "{{route('albums.store')}}" method = "post">
     @CSRF
 
 
-            <p>Title</p>
-            <input class="item_gap" type='text' name='title' />
+            <p>naam:</p>
+            <input class="item_gap" type='text' name='name'/>
 
-            @error('title')
+            @error('name')
             <div>
                 {{$message}}
             </div>
             @enderror
-            <p>singer</p>
-            <input class="item_gap" type="text" name='singer'/>
+            <p>jaar:</p>
+            <input class="item_gap" type="text" name='year'/>
 
-        @error('singer')
+        @error('year')
         <div>
             {{$message}}
         </div>
         @enderror
+        <p>Aantal keer verkocht:</p>
+        <input class="item_gap" type="text" name='times_sold'/>
+
+        @error('times_sold')
+        <div>
+            {{$message}}
+        </div>
+        @enderror
+
     <br>
-    <select class="item_gap" name="" id="">
-        <option value="test">test</option>
-    </select>
-    <br>
 
-                <input type = 'submit' value = "Add song"/>
+                <input class="item_gap" type='submit' value="add"/>
 
 
-    </table>
+
 </form>
 </div>
 </body>
 </html>
-
